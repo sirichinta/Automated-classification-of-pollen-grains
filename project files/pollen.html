@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Pollen Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .pollen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .pollen-item {
+            border: 1px solid #ccc;
+            padding: 15px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .pollen-item img {
+            max-width: 100%;
+            height: 150px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensures image covers the area, cropping if necessary */
+            margin-bottom: 10px;
+        }
+        .pollen-item h3 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+        a{
+            text-decoration: none;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Automated Pollen Grain Classification</h1>
+    </header>
+
+    <nav>
+        <a href="#home" id="homeLink">Home</a>
+        <a href="#pollenDatabase" id="pollenDatabaseLink">Pollen Database</a>
+    </nav>
+
+    <div class="container" id="homeSection">
+        <h2>Welcome to the Automated Pollen Classification System</h2>
+        <p>This platform aims to provide an automated solution for classifying various pollen grains. Explore our database to learn more about different pollen types, their characteristics, and their significance.</p>
+        <p>Our system uses advanced image processing and machine learning techniques to accurately identify pollen grains, assisting researchers, allergists, and environmental scientists.</p>
+        <p>Navigate to the "Pollen Database" section to view our collection of pollen samples.</p>
+    </div>
+
+    <div class="container" id="pollenDatabaseSection" style="display:none;">
+        <h2>Pollen Database</h2>
+        <p>Explore the different types of pollen grains in our collection. Click on each image for more details (future feature).</p>
+
+        <div class="pollen-grid">
+            <div class="pollen-item">
+                <img src="pine2.jpg" alt="Pine Pollen">
+                <h3><a href="pine.html">Pine Pollen</a></h3>
+                <p>Commonly found, large, and winged pollen grains.</p>
+            </div>
+            <div class="pollen-item">
+                <img src="sunflower.jpg" alt="Sunflower Pollen">
+                <h3><a href="sunflower.html">Sunflower Pollen</a></h3>
+                <p>A major cause of allergies, spherical and spiny.</p>
+            </div>
+            <div class="pollen-item">
+                <img src="Oak.jpeg" alt="Oak Pollen">
+                <h3><a href="oak.html">Oak Pollen</a></h3>
+                <p>Abundant, typically smooth and spherical to ovoid.</p>
+            </div>
+            <div class="pollen-item">
+                <img src="birch.jpeg" alt="Birch Pollen">
+                <h3><a href="brich.html">Birch Pollen</a></h3>
+                <p>Small, with three pores, common allergen.</p>
+            </div>
+            <div class="pollen-item">
+                <img src="grass.jpeg" alt="Grass Pollen">
+                <h3><a href="grass.html">Grass Pollen</a></h3>
+                <p>Diverse shapes, a significant source of hay fever.</p>
+            </div>
+            <div class="pollen-item">
+                <img src="maple.jpg" alt="Maple Pollen">
+                <h3><a href="maple.html">Maple Pollen</a></h3>
+                <p>Oval or spherical with distinct furrows.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('homeLink').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('homeSection').style.display = 'block';
+            document.getElementById('pollenDatabaseSection').style.display = 'none';
+        });
+
+        document.getElementById('pollenDatabaseLink').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('homeSection').style.display = 'none';
+            document.getElementById('pollenDatabaseSection').style.display = 'block';
+        });
+
+        // Initialize display on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('homeSection').style.display = 'block';
+            document.getElementById('pollenDatabaseSection').style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>
